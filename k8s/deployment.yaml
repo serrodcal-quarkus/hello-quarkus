@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-quarkus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-quarkus
+  template:
+    metadata:
+      labels:
+        app: hello-quarkus
+    spec:
+      containers:
+        - name: hello-quarkus
+          image: serrodcal/hello-quarkus:0.1.0
+          imagePullPolicy: IfNotPresent
+          name: hello-quarkus
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              memory: 1G
+              cpu: 1000m
+            requests:
+              memory: 500M
+              cpu: 500m
