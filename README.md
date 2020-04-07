@@ -36,9 +36,25 @@ Build the image with:
 docker build -f src/main/docker/Dockerfile.native -t serrodcal/hello-quarkus:0.1.0 .
 ```
 
+**Note**: Or pull image from Docker Hub: `docker pull serrodcal/hello-quarkus:0.1.0`
+
 Then run the container using:
 ```
 docker run -i --rm -p 8080:8080 serrodcal/hello-quarkus:0.1.0
+```
+
+### Creating a distroless Docker image in native (no JVM)
+
+Build the image with:
+```
+docker build -f src/main/docker/Dockerfile.native-distroless -t serrodcal/hello-quarkus-distroless:0.1.0 .
+```
+
+**Note**: Or pull image from Docker Hub: `docker pull serrodcal/hello-quarkus-distroless:0.1.0`
+
+Then run the container using:
+```
+docker run -i --rm -p 8080:8080 serrodcal/hello-quarkus-distroless:0.1.0
 ```
 
 ### Testing the application
